@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme inline {
+  --color-primary: oklch(0.6324 0.2393 26.54);
+  --color-background: oklch(0.9118 0.037 0);
+  --color-foreground: oklch(0.1324 0.0247 0);
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
