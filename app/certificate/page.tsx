@@ -48,7 +48,7 @@ export default function CertificateLookupPage() {
       const certificate = data.certificate as CertificateRecord;
       // Redirect to certificate display page
       router.push(
-        `/certificate/${encodeURIComponent(certificate.certificateId)}`
+        `/certificate/${encodeURIComponent(certificate.certificateId)}`,
       );
     } catch (err) {
       console.error(err);

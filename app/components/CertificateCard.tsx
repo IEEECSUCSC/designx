@@ -18,6 +18,7 @@ export function CertificateCard({
   issueDate,
 }: CertificateCardProps) {
   const certificateRef = useRef<HTMLDivElement | null>(null);
+  const certificateIdRef = useRef<HTMLDivElement | null>(null);
 
   const handleDownload = async () => {
     if (!certificateRef.current) return;
@@ -48,7 +49,33 @@ export function CertificateCard({
       format: "a4",
     });
 
-    pdf.addImage(imgData, "PNG", 0, 0, 297, 210);
+    const pdfWidth = 297;
+    const pdfHeight = 210;
+
+    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+
+    // Dynamic link positioning matching the element's actual position
+    if (certificateIdRef.current && certificateRef.current) {
+      const containerRect = certificateRef.current.getBoundingClientRect();
+      const idRect = certificateIdRef.current.getBoundingClientRect();
+
+      // Calculate relative position and size in %
+      const relX = (idRect.left - containerRect.left) / containerRect.width;
+      const relY = (idRect.top - containerRect.top) / containerRect.height;
+      const relWidth = idRect.width / containerRect.width;
+      const relHeight = idRect.height / containerRect.height;
+
+      // Map to PDF coordinates (mm)
+      const linkX = relX * pdfWidth;
+      const linkY = relY * pdfHeight;
+      const linkW = relWidth * pdfWidth;
+      const linkH = relHeight * pdfHeight;
+
+      const verificationUrl = `${window.location.origin}/verify?id=${certificateId}`;
+
+      pdf.link(linkX, linkY, linkW, linkH, { url: verificationUrl });
+    }
+
     pdf.save(`${name}_certificate.pdf`);
   };
 
@@ -97,7 +124,8 @@ export function CertificateCard({
           {issueDate}
         </div>
         <div
-          className="absolute text-center text-black font-sans text-sm"
+          ref={certificateIdRef}
+          className="absolute text-center text-black font-sans text-sm underline "
           style={{
             top: "86.2%",
             left: "53%",

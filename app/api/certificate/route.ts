@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     if (!email || !contactNumber) {
       return NextResponse.json(
         { error: "Email and contact number are required." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -40,13 +40,13 @@ export async function POST(request: Request) {
     const record = certificates.find(
       (item) =>
         item.email.trim().toLowerCase() === normalizedEmail &&
-        item.contactNumber.trim() === normalizedContact
+        item.contactNumber.trim() === normalizedContact,
     );
 
     if (!record) {
       return NextResponse.json(
         { error: "Certificate not found." },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -55,7 +55,7 @@ export async function POST(request: Request) {
     console.error("Error in /api/certificate:", error);
     return NextResponse.json(
       { error: "Internal server error." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

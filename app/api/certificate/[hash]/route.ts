@@ -24,7 +24,7 @@ function loadCertificates(): CertificateRecord[] {
 
 export async function GET(
   request: Request,
-  { params }: { params: Promise<{ hash: string }> }
+  { params }: { params: Promise<{ hash: string }> },
 ) {
   try {
     const { hash } = await params;
@@ -32,7 +32,7 @@ export async function GET(
     if (!hash) {
       return NextResponse.json(
         { error: "Certificate ID is required." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -40,13 +40,13 @@ export async function GET(
     const normalizedId = decodeURIComponent(hash).trim();
 
     const record = certificates.find(
-      (item) => item.certificateId.trim() === normalizedId
+      (item) => item.certificateId.trim() === normalizedId,
     );
 
     if (!record) {
       return NextResponse.json(
         { error: "Certificate not found." },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -55,7 +55,7 @@ export async function GET(
     console.error("Error in /api/certificate/[hash]:", error);
     return NextResponse.json(
       { error: "Internal server error." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

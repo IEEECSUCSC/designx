@@ -22,7 +22,7 @@ export default function CertificateDisplayPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [certificate, setCertificate] = useState<CertificateRecord | null>(
-    null
+    null,
   );
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function CertificateDisplayPage() {
     async function fetchCertificate() {
       try {
         const response = await fetch(
-          `/api/certificate/${encodeURIComponent(hash)}`
+          `/api/certificate/${encodeURIComponent(hash)}`,
         );
 
         if (!response.ok) {
