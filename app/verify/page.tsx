@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useQueryState, parseAsString } from "nuqs";
 import { CertificateCard } from "../components/CertificateCard";
 
 type CertificateRecord = {
@@ -14,12 +15,15 @@ type CertificateRecord = {
 };
 
 export default function VerifyCertificatePage() {
-  const [certificateId, setCertificateId] = useState("");
+  const [certificateId, setCertificateId] = useQueryState(
+    "id",
+    parseAsString.withDefault(""),
+  );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [valid, setValid] = useState<boolean | null>(null);
   const [certificate, setCertificate] = useState<CertificateRecord | null>(
-    null
+    null,
   );
 
   async function handleSubmit(event: React.FormEvent) {

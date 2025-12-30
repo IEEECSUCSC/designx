@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     if (!certificateId) {
       return NextResponse.json(
         { valid: false, error: "Certificate ID is required." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -37,13 +37,13 @@ export async function POST(request: Request) {
     const normalizedId = String(certificateId).trim();
 
     const record = certificates.find(
-      (item) => item.certificateId.trim() === normalizedId
+      (item) => item.certificateId.trim() === normalizedId,
     );
 
     if (!record) {
       return NextResponse.json(
         { valid: false, error: "Certificate not found." },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -52,7 +52,7 @@ export async function POST(request: Request) {
     console.error("Error in /api/verify:", error);
     return NextResponse.json(
       { valid: false, error: "Internal server error." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
