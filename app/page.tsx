@@ -1,35 +1,69 @@
+import Image from "next/image";
+import Link from "next/link";
+import NavBar from "./components/NavBar";
+import Sponsors from "./components/Sponsors";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-zinc-50 px-4 py-12 dark:bg-black">
-      <div className="w-full max-w-3xl space-y-10 text-center">
-        <section className="space-y-4">
-          <p className="text-sm font-medium tracking-[0.3em] text-zinc-500 dark:text-zinc-400">
-            DESIGNX HACKATHON
-          </p>
-          <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
-            DesignX Hackathon Certificates
+    <main className="site-shell px-5 pb-14 pt-6">
+      <Image
+        src="/left_side_watermark.png"
+        alt="DesignX watermark"
+        width={620}
+        height={960}
+        className="site-watermark"
+        priority
+      />
+
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center">
+        <NavBar />
+
+        <section className="relative mt-14 w-full max-w-5xl text-center">
+          <h1 className="hero-title mx-auto text-[56px] sm:text-[92px]">
+            UI/UX DESIGN
+            <br />
+            WORKSHOP
           </h1>
-          <p className="mx-auto max-w-xl text-sm text-zinc-600 dark:text-zinc-400">
-            Use this portal to view your DesignX Hackathon participation
-            certificate or verify the authenticity of a certificate using its
-            ID.
+
+          <p className="body-copy mx-auto mt-8 max-w-3xl text-[12px] leading-5 text-zinc-800">
+            This is the official certificate verification page for the UI/UX
+            Design Workshop organized by the IEEE Computer Society Student
+            Branch - University of Colombo School of Computing (UCSC), with IFS
+            as the Innovation Partner. Use this page to verify the authenticity
+            of certificates issued for this workshop using the unique
+            verification code provided on each certificate.
           </p>
+
+          <div className="mt-8 flex justify-center">
+            <Link
+              href="/verify"
+              className="primary-button inline-flex items-center justify-center rounded px-7 py-3 text-sm font-semibold text-white"
+            >
+              Verify Your Certificate
+            </Link>
+          </div>
+
+          <div className="pointer-events-none absolute left-8 top-24 hidden md:block">
+            <Image
+              src="/bot1.png"
+              alt="Pixel bot"
+              width={70}
+              height={70}
+              className="floating-icon"
+            />
+          </div>
+          <div className="pointer-events-none absolute right-12 top-24 hidden md:block">
+            <Image
+              src="/bot2.png"
+              alt="Pixel bot"
+              width={74}
+              height={74}
+              className="floating-icon"
+            />
+          </div>
         </section>
 
-        <section className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
-            href="/certificate"
-            className="inline-flex w-full items-center justify-center rounded-full bg-zinc-900 px-6 py-3 text-sm font-medium text-zinc-50 transition hover:bg-zinc-800 sm:w-auto dark:bg-zinc-50 dark:text-zinc-950 dark:hover:bg-zinc-200"
-          >
-            View Your Certificate
-          </a>
-          <a
-            href="/verify"
-            className="inline-flex w-full items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-900 transition hover:bg-zinc-100 sm:w-auto dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-900"
-          >
-            Verify a Certificate
-          </a>
-        </section>
+        <Sponsors />
       </div>
     </main>
   );
