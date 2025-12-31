@@ -12,12 +12,13 @@ type Certificate = {
   certificateImage?: string;
 };
 
-export default function CertificatePage({
+export default async function CertificatePage({
   searchParams,
 }: {
-  searchParams: { id?: string };
+  searchParams: Promise<{ id?: string }>;
 }) {
-  const idFromQuery = searchParams?.id?.toString();
+  const { id } = await searchParams;
+  const idFromQuery = id?.toString();
   const certificateList = certificates as Certificate[];
   const found = certificateList.find((item) =>
     idFromQuery

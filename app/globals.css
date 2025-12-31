@@ -39,11 +39,11 @@ html {
 .site-watermark {
     pointer-events: none;
     position: absolute;
-    right: -90px;
+    right: -1px;
     top: 74px;
-    height: 84vh;
+    height: 90vh;
     width: auto;
-    opacity: 0.28;
+    opacity: 1;
 }
 
 .nav-shell {
@@ -61,10 +61,13 @@ html {
     background: #c40d23;
     box-shadow: 4px 4px 0 #111111;
     transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+    will-change: transform;
 }
 
 .cta-button:hover {
-    filter: brightness(1.02);
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #111111;
+    filter: brightness(1.03);
 }
 
 .cta-button:active {
@@ -92,10 +95,13 @@ html {
     background: #c40d23;
     box-shadow: 4px 4px 0 #111111;
     transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+    will-change: transform;
 }
 
 .primary-button:hover {
-    filter: brightness(1.02);
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #111111;
+    filter: brightness(1.03);
 }
 
 .primary-button:active {
@@ -144,5 +150,14 @@ html {
     .primary-button,
     .field {
         transition: none;
+    }
+
+    .cta-button:hover,
+    .primary-button:hover,
+    .cta-button:active,
+    .primary-button:active {
+        transform: none;
+        box-shadow: 4px 4px 0 #111111;
+        filter: none;
     }
 }
