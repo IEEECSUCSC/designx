@@ -4,6 +4,8 @@
   --color-primary: oklch(0.6624 0.2243 24.34);
   --color-background: oklch(0.9118 0.037 0);
   --color-foreground: oklch(0.2308 0 0);
+
+  --color-primary-foreground: #161213;
 }
 
 body {

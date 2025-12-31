@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-zinc-50 px-4 py-12 dark:bg-black">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-background px-4 py-12 ">
       <div className="w-full max-w-3xl space-y-10 text-center">
         <section className="space-y-4">
           <p className="text-sm font-medium tracking-[0.3em] text-zinc-500 dark:text-zinc-400">
