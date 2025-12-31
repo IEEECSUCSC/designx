@@ -17,14 +17,14 @@ export default function NavBar() {
       </div>
 
       <nav className="flex items-center gap-6 text-sm font-medium uppercase tracking-wide">
-        <span className="nav-link">logo</span>
-        <span className="nav-link">logo</span>
-        <span className="nav-link">logo</span>
+        <span className="nav-link">Home</span>
+        <span className="nav-link">About</span>
+        <span className="nav-link">Contact</span>
         <Link
           href="/verify"
           className="cta-button rounded px-6 py-2 text-white"
         >
-          Button
+          Verify
         </Link>
       </nav>
     </header>
