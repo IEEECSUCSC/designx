@@ -47,9 +47,56 @@ html {
 }
 
 .nav-shell {
+    position: relative;
     border: 1px solid #c9c9c9;
     background: #ffffff;
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.32), 0 12px 24px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.menu-button {
+    border: 2px solid #111111;
+    background: #ffffff;
+    box-shadow: 3px 3px 0 #111111;
+    transition: transform 140ms ease, box-shadow 140ms ease;
+    will-change: transform;
+}
+
+.menu-button:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 #111111;
+}
+
+.menu-button:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 #111111;
+}
+
+.menu-panel {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 10px);
+    transform: translateX(-50%);
+    width: 240px;
+    border: 2px solid #111111;
+    background: #ffffff;
+    box-shadow: 6px 6px 0 #111111;
+    padding: 8px;
+    z-index: 5000;
+}
+
+.menu-item {
+    display: block;
+    padding: 10px 12px;
+    border: 2px solid transparent;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.menu-item:hover {
+    border-color: #111111;
 }
 
 .nav-link {
@@ -148,7 +195,8 @@ html {
 
     .cta-button,
     .primary-button,
-    .field {
+    .field,
+    .menu-button {
         transition: none;
     }
 
@@ -159,5 +207,11 @@ html {
         transform: none;
         box-shadow: 4px 4px 0 #111111;
         filter: none;
+    }
+
+    .menu-button:hover,
+    .menu-button:active {
+        transform: none;
+        box-shadow: 3px 3px 0 #111111;
     }
 }
