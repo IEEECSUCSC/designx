@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import NavBar from "./components/NavBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +30,21 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="relative flex min-h-screen flex-col overflow-hidden bg-[#f3f3f3] px-5 pb-14 pt-6 text-[#0f0f0f]">
+          <Image
+            src="/left_side_watermark.png"
+            alt="DesignX watermark"
+            width={620}
+            height={960}
+            className="site-watermark"
+            priority
+          />
+
+          <div className="mx-auto flex w-full max-w-6xl flex-col items-center">
+            <NavBar />
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
