@@ -60,7 +60,7 @@ export default function CertificateDisplayPage() {
 
   if (loading) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-zinc-50 px-4 py-12 dark:bg-black">
+      <main className="flex min-h-screen flex-col items-center justify-center px-4 py-12">
         <div className="text-center">
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
             Loading certificate...
@@ -72,7 +72,7 @@ export default function CertificateDisplayPage() {
 
   if (error || !certificate) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-zinc-50 px-4 py-12 dark:bg-black">
+      <main className="flex min-h-screen flex-col items-center justify-center px-4 py-12">
         <div className="w-full max-w-4xl space-y-6 text-center">
           <div className="space-y-2">
             <h1 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
@@ -92,7 +92,7 @@ export default function CertificateDisplayPage() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-zinc-50 px-4 py-12 dark:bg-black">
+    <main className="flex min-h-screen flex-col items-center justify-center px-4 py-12">
       <div className="w-full max-w-4xl space-y-6">
         <div className="flex justify-center">
           <CertificateCard
