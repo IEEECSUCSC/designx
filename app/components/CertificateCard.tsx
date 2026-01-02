@@ -3,6 +3,8 @@
 import { useRef } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import PrimaryButton from "./ui/PrimaryButton";
+import Link from "next/link";
 
 type CertificateCardProps = {
   name: string;
@@ -80,10 +82,10 @@ export function CertificateCard({
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-4 text-center lg:mt-6 lg:gap-y-4 lg:py-16 overflow-clip">
+    <div className="flex flex-col items-center justify-center overflow-clip px-4 lg:mt-6 lg:gap-y-8 lg:py-8">
       <div
         ref={certificateRef}
-        className="relative flex flex-row items-center justify-center w-[100px] xl:w-[1400px]"
+        className="relative flex w-[100px] flex-row items-center justify-center xl:w-[1400px]"
         style={{
           aspectRatio: "1.414",
           maxWidth: "100%",
@@ -102,7 +104,7 @@ export function CertificateCard({
           }}
         />
         <div
-          className="absolute text-center font-semibold text-black text-2xl"
+          className="absolute text-center text-2xl font-semibold text-black"
           style={{
             top: "41%",
             left: "50%",
@@ -113,7 +115,7 @@ export function CertificateCard({
           {name}
         </div>
         <div
-          className="absolute text-center text-black font-sans text-sm"
+          className="absolute text-center font-sans text-sm text-black"
           style={{
             top: "82.6%",
             left: "51%",
@@ -125,7 +127,7 @@ export function CertificateCard({
         </div>
         <div
           ref={certificateIdRef}
-          className="absolute text-center text-black font-sans text-sm underline "
+          className="absolute text-center font-sans text-sm text-black underline"
           style={{
             top: "86.2%",
             left: "53%",
@@ -137,12 +139,23 @@ export function CertificateCard({
         </div>
       </div>
 
-      <button
-        onClick={handleDownload}
-        className="mt-4 rounded-2xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
-      >
-        Download Certificate
-      </button>
+      <div className="flex w-full items-start justify-between gap-4">
+        <div className="flex gap-4">
+          <PrimaryButton
+            onClick={handleDownload}
+            className="mt-4 rounded-2xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
+          >
+            Download Certificate
+          </PrimaryButton>
+          {/* verify link */}
+          <Link href={`/verify?id=${certificateId}`}>
+            <PrimaryButton>Verify Certificate</PrimaryButton>
+          </Link>
+        </div>
+        <Link href={`/certificate`}>
+          <PrimaryButton>Search Another Certificate</PrimaryButton>
+        </Link>
+      </div>
     </div>
   );
 }

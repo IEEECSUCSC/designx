@@ -24,23 +24,20 @@ function loadCertificates(): CertificateRecord[] {
 
 export async function POST(request: Request) {
   try {
-    const { email, contactNumber } = await request.json();
+    const { email } = await request.json();
 
-    if (!email || !contactNumber) {
+    if (!email) {
       return NextResponse.json(
-        { error: "Email and contact number are required." },
+        { error: "Email is required." },
         { status: 400 },
       );
     }
 
     const certificates = loadCertificates();
     const normalizedEmail = String(email).trim().toLowerCase();
-    const normalizedContact = String(contactNumber).trim();
 
     const record = certificates.find(
-      (item) =>
-        item.email.trim().toLowerCase() === normalizedEmail &&
-        item.contactNumber.trim() === normalizedContact,
+      (item) => item.email.trim().toLowerCase() === normalizedEmail,
     );
 
     if (!record) {
