@@ -6,6 +6,10 @@
   --color-foreground: oklch(0.2308 0 0);
 
   --color-primary-foreground: #eee;
+
+  --font-mono: var(--font-geist-mono);
+
+  --rounded-base: var(--radius-lg);
 }
 
 body {
