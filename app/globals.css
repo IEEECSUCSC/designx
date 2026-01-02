@@ -1,228 +1,224 @@
 @import "tailwindcss";
 
 @layer base {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-  }
-
-  @theme inline {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
-  }
-
-  @media (prefers-color-scheme: dark) {
     :root {
-      --background: #0a0a0a;
-      --foreground: #ededed;
+        --background: #ffffff;
+        --foreground: #171717;
     }
-  }
 
-  html {
-    scroll-behavior: smooth;
-  }
+    @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --font-sans: var(--font-geist-sans);
+        --font-mono: var(--font-geist-mono);
+    }
 
-  body {
-    background: #f3f3f3;
-    color: #0f0f0f;
-    font-family:
-      var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco,
-      Consolas, "Liberation Mono", "Courier New", monospace;
-  }
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --background: #0a0a0a;
+            --foreground: #ededed;
+        }
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: #f3f3f3;
+        color: #0f0f0f;
+        font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+            Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
 }
 
 @layer components {
-  .site-watermark {
-    pointer-events: none;
-    position: absolute;
-    right: -1px;
-    top: 74px;
-    height: 90vh;
-    width: auto;
-    opacity: 1;
-  }
+    .site-watermark {
+        pointer-events: none;
+        position: absolute;
+        right: -1px;
+        top: 74px;
+        height: 90vh;
+        width: auto;
+        opacity: 1;
+    }
 
-  .nav-shell {
-    position: relative;
-    border: 1px solid #c9c9c9;
-    background: #ffffff;
-    box-shadow:
-      0 2px 0 rgba(0, 0, 0, 0.32),
-      0 12px 24px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-  }
+    .nav-shell {
+        position: relative;
+        border: 1px solid #c9c9c9;
+        background: #ffffff;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.32), 0 12px 24px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
 
-  .nav-link {
-    opacity: 0.78;
-  }
+    .nav-link {
+        opacity: 0.78;
+    }
 
-  .menu-button {
-    border: 2px solid #111111;
-    background: #ffffff;
-    box-shadow: 3px 3px 0 #111111;
-    transition:
-      transform 140ms ease,
-      box-shadow 140ms ease;
-    will-change: transform;
-  }
+    .menu-button {
+        border: 2px solid #111111;
+        background: #ffffff;
+        box-shadow: 3px 3px 0 #111111;
+        transition: transform 140ms ease, box-shadow 140ms ease;
+        will-change: transform;
+    }
 
-  .menu-button:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0 #111111;
-  }
+    .menu-button:hover {
+        transform: translate(-1px, -1px);
+        box-shadow: 4px 4px 0 #111111;
+    }
 
-  .menu-button:active {
-    transform: translate(1px, 1px);
-    box-shadow: 2px 2px 0 #111111;
-  }
+    .menu-button:active {
+        transform: translate(1px, 1px);
+        box-shadow: 2px 2px 0 #111111;
+    }
 
-  .menu-panel {
-    position: absolute;
-    left: 50%;
-    top: calc(100% + 10px);
-    transform: translateX(-50%);
-    width: 240px;
-    border: 2px solid #111111;
-    background: #ffffff;
-    box-shadow: 6px 6px 0 #111111;
-    padding: 8px;
-    z-index: 5000;
-  }
+    .menu-panel {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100dvh;
+        border: none;
+        background: #ffffff;
+        box-shadow: none;
+        padding: 24px;
+        z-index: 5000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
 
-  .menu-item {
-    display: block;
-    padding: 10px 12px;
-    border: 2px solid transparent;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-  }
+    .menu-item {
+        display: block;
+        padding: 16px 24px;
+        border: 2px solid transparent;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        text-align: center;
+        width: 100%;
+        max-width: 280px;
+    }
 
-  .menu-item:hover {
-    border-color: #111111;
-  }
+    .menu-item:hover {
+        border-color: #111111;
+    }
 
-  .cta-button {
-    border: 2px solid #111111;
-    background: #c40d23;
-    box-shadow: 4px 4px 0 #111111;
-    transition:
-      transform 140ms ease,
-      box-shadow 140ms ease,
-      filter 140ms ease;
-    will-change: transform;
-  }
+    .cta-button {
+        border: 2px solid #111111;
+        background: #c40d23;
+        box-shadow: 4px 4px 0 #111111;
+        transition: transform 140ms ease, box-shadow 140ms ease,
+            filter 140ms ease;
+        will-change: transform;
+    }
 
-  .cta-button:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 6px 6px 0 #111111;
-    filter: brightness(1.03);
-  }
+    .cta-button:hover {
+        transform: translate(-1px, -1px);
+        box-shadow: 6px 6px 0 #111111;
+        filter: brightness(1.03);
+    }
 
-  .cta-button:active {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #111111;
-  }
+    .cta-button:active {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 #111111;
+    }
 
-  .primary-button {
-    border: 2px solid #111111;
-    background: #c40d23;
-    box-shadow: 4px 4px 0 #111111;
-    transition:
-      transform 140ms ease,
-      box-shadow 140ms ease,
-      filter 140ms ease;
-    will-change: transform;
-  }
+    .primary-button {
+        border: 2px solid #111111;
+        background: #c40d23;
+        box-shadow: 4px 4px 0 #111111;
+        transition: transform 140ms ease, box-shadow 140ms ease,
+            filter 140ms ease;
+        will-change: transform;
+    }
 
-  .primary-button:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 6px 6px 0 #111111;
-    filter: brightness(1.03);
-  }
+    .primary-button:hover {
+        transform: translate(-1px, -1px);
+        box-shadow: 6px 6px 0 #111111;
+        filter: brightness(1.03);
+    }
 
-  .primary-button:active {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #111111;
-  }
+    .primary-button:active {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0 #111111;
+    }
 
-  .field {
-    border: 2px solid #111111;
-    background: #ffffff;
-    transition: box-shadow 160ms ease;
-  }
+    .field {
+        border: 2px solid #111111;
+        background: #ffffff;
+        transition: box-shadow 160ms ease;
+    }
 
-  .field:focus {
-    box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.18);
-  }
+    .field:focus {
+        box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.18);
+    }
 
-  .hero-title {
-    font-family:
-      var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco,
-      Consolas, "Liberation Mono", "Courier New", monospace;
-    font-weight: 900;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-    line-height: 0.9;
-    text-shadow: 8px 8px 0 rgba(0, 0, 0, 0.15);
-  }
+    .hero-title {
+        font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+            Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-weight: 900;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        line-height: 0.9;
+        text-shadow: 8px 8px 0 rgba(0, 0, 0, 0.15);
+    }
 
-  .body-copy {
-    font-family:
-      var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco,
-      Consolas, "Liberation Mono", "Courier New", monospace;
-  }
+    .body-copy {
+        font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+            Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
 }
 
 @keyframes floaty {
-  0% {
-    transform: translateY(0);
-  }
+    0% {
+        transform: translateY(0);
+    }
 
-  50% {
-    transform: translateY(-9px);
-  }
+    50% {
+        transform: translateY(-9px);
+    }
 
-  100% {
-    transform: translateY(0);
-  }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .floating-icon {
-  animation: floaty 3.4s ease-in-out infinite;
+    animation: floaty 3.4s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+    html {
+        scroll-behavior: auto;
+    }
 
-  .floating-icon {
-    animation: none;
-  }
+    .floating-icon {
+        animation: none;
+    }
 
-  .cta-button,
-  .primary-button,
-  .field,
-  .menu-button {
-    transition: none;
-  }
+    .cta-button,
+    .primary-button,
+    .field,
+    .menu-button {
+        transition: none;
+    }
 
-  .cta-button:hover,
-  .primary-button:hover,
-  .cta-button:active,
-  .primary-button:active {
-    transform: none;
-    box-shadow: 4px 4px 0 #111111;
-    filter: none;
-  }
+    .cta-button:hover,
+    .primary-button:hover,
+    .cta-button:active,
+    .primary-button:active {
+        transform: none;
+        box-shadow: 4px 4px 0 #111111;
+        filter: none;
+    }
 
-  .menu-button:hover,
-  .menu-button:active {
-    transform: none;
-    box-shadow: 3px 3px 0 #111111;
-  }
+    .menu-button:hover,
+    .menu-button:active {
+        transform: none;
+        box-shadow: 3px 3px 0 #111111;
+    }
 }
