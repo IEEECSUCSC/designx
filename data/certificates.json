@@ -16,5 +16,14 @@
     "role": "Winner",
     "certificateId": "DXH25-0002",
     "issueDate": "2025-12-01"
+  },
+  {
+    "email": "jane@example.com",
+    "contactNumber": "+94710000000",
+    "name": "Jane Doe",
+    "event": "DesignX Hackathon 2025",
+    "role": "Participant",
+    "certificateId": "DXH25-0001",
+    "issueDate": "2025-12-01"
   }
 ]

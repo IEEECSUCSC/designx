@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@theme inline {
+  --color-primary: #ff4248;
+  --color-background: oklch(0.9118 0.037 0);
+  --color-foreground: oklch(0.2308 0 0);
+
+  --color-primary-foreground: #eee;
+
+  --font-mono: var(--font-geist-mono);
+
+  --rounded-base: var(--radius-lg);
+}
+
 @layer base {
     :root {
         --background: #ffffff;
