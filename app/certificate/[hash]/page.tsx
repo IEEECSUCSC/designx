@@ -1,18 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
-import Link from "next/link";
+import { useParams, useRouter, notFound } from "next/navigation";
 import { CertificateCard } from "../../components/CertificateCard";
 
 type CertificateRecord = {
   email: string;
-  contactNumber: string;
   name: string;
-  event: string;
-  role: string;
   certificateId: string;
-  issueDate: string;
 };
 
 export default function CertificateDisplayPage() {
@@ -71,45 +66,17 @@ export default function CertificateDisplayPage() {
   }
 
   if (error || !certificate) {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-center px-4 py-12">
-        <div className="w-full max-w-4xl space-y-6 text-center">
-          <div className="space-y-2">
-            <h1 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
-              Certificate Not Found
-            </h1>
-            <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
-          </div>
-          <Link
-            href="/certificate"
-            className="inline-flex items-center justify-center rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-50 transition hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-950 dark:hover:bg-zinc-200"
-          >
-            Back to Certificate Search
-          </Link>
-        </div>
-      </main>
-    );
+    notFound();
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center px-4 py-12">
+    <main className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 py-12">
       <div className="w-full max-w-4xl space-y-6">
         <div className="flex justify-center">
           <CertificateCard
             name={certificate.name}
-            event={certificate.event}
-            role={certificate.role}
             certificateId={certificate.certificateId}
-            issueDate={certificate.issueDate}
           />
-        </div>
-        <div className="text-center">
-          <Link
-            href="/certificate"
-            className="inline-flex items-center justify-center rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-50 dark:hover:bg-zinc-900"
-          >
-            Search Another Certificate
-          </Link>
         </div>
       </div>
     </main>
