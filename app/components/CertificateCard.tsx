@@ -89,7 +89,6 @@ export function CertificateCard({ name, certificateId }: CertificateCardProps) {
         }`}
         style={{
           aspectRatio: "1.414",
-          maxWidth: "100%",
         }}
       >
         <img
