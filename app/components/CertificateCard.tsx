@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import PrimaryButton from "./ui/PrimaryButton";
@@ -14,6 +14,7 @@ type CertificateCardProps = {
 export function CertificateCard({ name, certificateId }: CertificateCardProps) {
   const certificateRef = useRef<HTMLDivElement | null>(null);
   const certificateIdRef = useRef<HTMLDivElement | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const handleDownload = async () => {
     if (!certificateRef.current) return;
@@ -76,9 +77,16 @@ export function CertificateCard({ name, certificateId }: CertificateCardProps) {
 
   return (
     <div className="flex flex-col items-center justify-center overflow-clip px-4 lg:mt-6 lg:gap-y-8 lg:py-8">
+      {!isLoaded && (
+        <div className="flex h-[200px] w-full items-center justify-center text-sm font-medium text-zinc-500">
+          Loading certificate...
+        </div>
+      )}
       <div
         ref={certificateRef}
-        className="relative flex w-[1000px] flex-row items-center justify-center lg:scale-90 xl:w-[1400px]"
+        className={`relative flex w-[1000px] flex-row items-center justify-center lg:scale-90 xl:w-[1400px] ${
+          !isLoaded ? "hidden" : ""
+        }`}
         style={{
           aspectRatio: "1.414",
           maxWidth: "100%",
@@ -87,6 +95,7 @@ export function CertificateCard({ name, certificateId }: CertificateCardProps) {
         <img
           src="/email-template.png"
           alt="Certificate"
+          onLoad={() => setIsLoaded(true)}
           style={{
             width: "100%",
             height: "100%",
@@ -96,36 +105,40 @@ export function CertificateCard({ name, certificateId }: CertificateCardProps) {
             left: 0,
           }}
         />
-        <div
-          className="_font-sans absolute flex flex-row flex-nowrap items-center justify-center text-2xl font-semibold text-black lg:text-4xl"
-          style={{
-            top: "41%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {name.split(" ").map((word, i, arr) => (
-            <span
-              key={i}
-              className={i < arr.length - 1 ? "mr-[0.4em] lg:mr-7" : ""}
+        {isLoaded && (
+          <>
+            <div
+              className="_font-sans absolute flex flex-row flex-nowrap items-center justify-center text-2xl font-semibold text-black lg:text-4xl"
+              style={{
+                top: "41%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                whiteSpace: "nowrap",
+              }}
             >
-              {word}
-            </span>
-          ))}
-        </div>
-        <div
-          ref={certificateIdRef}
-          className="absolute text-center font-sans text-sm text-black underline lg:text-base"
-          style={{
-            top: "86.5%",
-            left: "33.5%",
-            transform: "translate(-50%, -50%)",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {certificateId}
-        </div>
+              {name.split(" ").map((word, i, arr) => (
+                <span
+                  key={i}
+                  className={i < arr.length - 1 ? "mr-[0.4em] lg:mr-7" : ""}
+                >
+                  {word}
+                </span>
+              ))}
+            </div>
+            <div
+              ref={certificateIdRef}
+              className="absolute text-center font-sans text-sm text-black underline lg:text-base"
+              style={{
+                top: "86.5%",
+                left: "33.5%",
+                transform: "translate(-50%, -50%)",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {certificateId}
+            </div>
+          </>
+        )}
       </div>
 
       <div className="flex w-full flex-col items-center justify-between gap-4 py-2 lg:flex-row lg:items-start">
