@@ -78,7 +78,7 @@ export default function VerifyCertificatePage() {
                   type="text"
                   value={certificateId}
                   onChange={(event) => setCertificateId(event.target.value)}
-                  placeholder="DXH25-0001"
+                  placeholder="DXH250001"
                   required
                 />
                 <PrimaryButton type="submit" disabled={loading}>
