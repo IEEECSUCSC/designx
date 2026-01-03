@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
-    <main className="container mx-auto mt-(--header-height) flex min-h-[calc(100vh-var(--header-height))] w-full flex-col items-center">
+    <main className="relative container mx-auto mt-(--header-height) flex min-h-[calc(100vh-var(--header-height))] w-full flex-col items-center">
       <section className="_max-w-5xl relative flex w-full flex-1 flex-col items-center justify-center gap-y-4 px-2 pt-10 text-center lg:gap-y-8">
         <h1
           className={cn(
