@@ -9,8 +9,8 @@ export default function Input(props: InputProps) {
       {...props}
       tabIndex={1}
       className={cn(
-        "min-w-[24rem] appearance-none px-4 py-2 outline-none",
-        "border border-[#111] shadow-[4px_4px_0_#111111]",
+        "w-full lg:min-w-[24rem] appearance-none px-4 py-2 outline-none",
+        "rounded-base border border-[#111] shadow-base",
         "focus:border-primary focus:ring-primary focus-within:border-primary active:border-primary focus-visible:border-primary",
         "placeholder:text-foreground/50",
       )}
