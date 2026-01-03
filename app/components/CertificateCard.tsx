@@ -8,17 +8,10 @@ import Link from "next/link";
 
 type CertificateCardProps = {
   name: string;
-  event: string;
-  role: string;
   certificateId: string;
-  issueDate: string;
 };
 
-export function CertificateCard({
-  name,
-  certificateId,
-  issueDate,
-}: CertificateCardProps) {
+export function CertificateCard({ name, certificateId }: CertificateCardProps) {
   const certificateRef = useRef<HTMLDivElement | null>(null);
   const certificateIdRef = useRef<HTMLDivElement | null>(null);
 
@@ -85,14 +78,14 @@ export function CertificateCard({
     <div className="flex flex-col items-center justify-center overflow-clip px-4 lg:mt-6 lg:gap-y-8 lg:py-8">
       <div
         ref={certificateRef}
-        className="relative flex w-[100px] flex-row items-center justify-center xl:w-[1400px]"
+        className="relative flex w-[1000px] flex-row items-center justify-center lg:scale-90 xl:w-[1400px]"
         style={{
           aspectRatio: "1.414",
           maxWidth: "100%",
         }}
       >
         <img
-          src="/new.png"
+          src="/email-template.png"
           alt="Certificate"
           style={{
             width: "100%",
@@ -104,7 +97,7 @@ export function CertificateCard({
           }}
         />
         <div
-          className="absolute text-center text-2xl font-semibold text-black"
+          className="_font-sans absolute flex flex-row flex-nowrap items-center justify-center text-2xl font-semibold text-black lg:text-4xl"
           style={{
             top: "41%",
             left: "50%",
@@ -112,25 +105,21 @@ export function CertificateCard({
             whiteSpace: "nowrap",
           }}
         >
-          {name}
-        </div>
-        <div
-          className="absolute text-center font-sans text-sm text-black"
-          style={{
-            top: "82.6%",
-            left: "51%",
-            transform: "translate(-50%, -50%)",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {issueDate}
+          {name.split(" ").map((word, i, arr) => (
+            <span
+              key={i}
+              className={i < arr.length - 1 ? "mr-[0.4em] lg:mr-7" : ""}
+            >
+              {word}
+            </span>
+          ))}
         </div>
         <div
           ref={certificateIdRef}
-          className="absolute text-center font-sans text-sm text-black underline"
+          className="absolute text-center font-sans text-sm text-black underline lg:text-base"
           style={{
-            top: "86.2%",
-            left: "53%",
+            top: "86.5%",
+            left: "33.5%",
             transform: "translate(-50%, -50%)",
             whiteSpace: "nowrap",
           }}
@@ -139,8 +128,8 @@ export function CertificateCard({
         </div>
       </div>
 
-      <div className="flex w-full items-start justify-between gap-4">
-        <div className="flex gap-4">
+      <div className="flex w-full flex-col items-center justify-between gap-4 py-2 lg:flex-row lg:items-start">
+        <div className="flex flex-col gap-4 lg:flex-row">
           <PrimaryButton
             onClick={handleDownload}
             className="mt-4 rounded-2xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"

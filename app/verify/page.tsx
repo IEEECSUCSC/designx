@@ -7,15 +7,12 @@ import HeaderText from "../components/ui/HeaderText";
 import Label from "../components/ui/label";
 import Input from "../components/ui/input";
 import PrimaryButton from "../components/ui/PrimaryButton";
+import Link from "next/link";
 
 type CertificateRecord = {
   email: string;
-  contactNumber: string;
   name: string;
-  event: string;
-  role: string;
   certificateId: string;
-  issueDate: string;
 };
 
 export default function VerifyCertificatePage() {
@@ -68,52 +65,53 @@ export default function VerifyCertificatePage() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center px-4">
-      <div className="container w-full flex-1 space-y-8 py-12">
-        <div className="">
+    <main className="page-height page-top-margin relative z-10 flex flex-col items-center justify-center px-4">
+      <div className="container flex w-full flex-1 flex-col justify-between space-y-8 py-12">
+        <div className="flex flex-col gap-y-6">
           <HeaderText>Verify your Certificate</HeaderText>
-        </div>
-
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex w-fit flex-col space-y-1">
-            <Label htmlFor="certificateId">Certificate ID</Label>
-            <div className="flex gap-8">
-              <Input
-                id="certificateId"
-                type="text"
-                value={certificateId}
-                onChange={(event) => setCertificateId(event.target.value)}
-                placeholder="DXH25-0001"
-                required
-              />
-              <PrimaryButton type="submit" disabled={loading}>
-                {loading ? "Checking..." : "Verify Certificate"}
-              </PrimaryButton>
+          <form onSubmit={handleSubmit} className="px-4a space-y-4">
+            <div className="flex w-full flex-col space-y-1 lg:w-fit">
+              <Label htmlFor="certificateId">Certificate ID</Label>
+              <div className="flex w-full flex-col gap-4 lg:flex-row lg:gap-8">
+                <Input
+                  id="certificateId"
+                  type="text"
+                  value={certificateId}
+                  onChange={(event) => setCertificateId(event.target.value)}
+                  placeholder="DXH25-0001"
+                  required
+                />
+                <PrimaryButton type="submit" disabled={loading}>
+                  {loading ? "Checking..." : "Verify Certificate"}
+                </PrimaryButton>
+              </div>
             </div>
-          </div>
-
-          {valid === false && error && (
-            <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
-          )}
-
-          {valid === true && (
-            <p className="text-sm text-emerald-600 dark:text-emerald-400">
-              Certificate is valid.
-            </p>
-          )}
-        </form>
+            {valid === false && error && (
+              <p className="text-primary text-sm">Not a valid certificate.</p>
+            )}
+            {valid === true && (
+              <p className="text-primary text-sm">Certificate is valid.</p>
+            )}
+          </form>
+        </div>
 
         {certificate && (
           <div className="flex justify-center">
             <CertificateCard
               name={certificate.name}
-              event={certificate.event}
-              role={certificate.role}
               certificateId={certificate.certificateId}
-              issueDate={certificate.issueDate}
             />
           </div>
         )}
+
+        <div className="flex justify-end">
+          <Link
+            href="/certificate"
+            className="underline underline-offset-2 hover:cursor-pointer"
+          >
+            Get Certificate
+          </Link>
+        </div>
       </div>
     </main>
   );

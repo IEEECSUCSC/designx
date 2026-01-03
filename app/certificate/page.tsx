@@ -6,6 +6,7 @@ import Input from "../components/ui/input";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import Label from "../components/ui/label";
 import HeaderText from "../components/ui/HeaderText";
+import Link from "next/link";
 
 type CertificateRecord = {
   email: string;
@@ -62,14 +63,14 @@ export default function CertificateLookupPage() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
-      <div className="container h-full w-full flex-1 py-12">
+    <main className="page-height page-top-margin relative z-10 flex flex-col items-center justify-center">
+      <div className="container flex h-full w-full flex-1 flex-col justify-between px-4 py-12">
         <div className="flex flex-col gap-6">
           <HeaderText>GET your Certificate</HeaderText>
-          <form onSubmit={handleSubmit} className="flex gap-4 px-4">
-            <div className="flex w-fit flex-col space-y-1">
+          <form onSubmit={handleSubmit} className="flex gap-4">
+            <div className="flex w-full flex-col space-y-1 lg:w-fit">
               <Label htmlFor="email">Email</Label>
-              <div className="flex gap-8">
+              <div className="flex w-full flex-col gap-4 lg:flex-row lg:gap-8">
                 <Input
                   id="email"
                   type="email"
@@ -89,6 +90,14 @@ export default function CertificateLookupPage() {
               <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
             )} */}
           </form>
+        </div>
+        <div className="flex justify-end">
+          <Link
+            href="/verify"
+            className="underline underline-offset-2 hover:cursor-pointer"
+          >
+            Verify Certificate
+          </Link>
         </div>
       </div>
     </main>
