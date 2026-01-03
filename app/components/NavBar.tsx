@@ -47,7 +47,7 @@ export default function NavBar() {
         className={cn(
           "bg-background container mx-auto flex w-full items-center justify-between px-4 py-3 sm:px-5",
           "h-(--header-height)",
-          "radius-base shadow-base border",
+          "rounded-base shadow-base border",
         )}
       >
         <div className="flex items-center gap-3">

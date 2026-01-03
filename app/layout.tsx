@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
-import Header from "./components/Header";
-import Image from "next/image";
 import NavBar from "./components/NavBar";
 import Watermark from "./components/ui/Watermark";
 
