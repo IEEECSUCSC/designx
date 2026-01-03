@@ -1,18 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import Sponsors from "./components/Sponsors";
+import HeaderText from "./components/ui/HeaderText";
 
 export default function Home() {
   return (
     <main className="container mx-auto mt-(--header-height) flex min-h-[calc(100vh-var(--header-height))] w-full flex-col items-center">
-      <section className="relative flex w-full max-w-5xl flex-1 flex-col items-center justify-center gap-y-4 px-2 pt-10 text-center lg:gap-y-8">
-        <h1 className="hero-title mx-auto text-[56px] sm:text-[92px]">
+      <section className="_max-w-5xl relative flex w-full flex-1 flex-col items-center justify-center gap-y-4 px-2 pt-10 text-center lg:gap-y-8">
+        <HeaderText>
           UI/UX DESIGN
           <br />
           WORKSHOP
-        </h1>
+        </HeaderText>
 
-        <p className="body-copy mx-auto max-w-3xl text-[12px] leading-5 text-zinc-800">
+        <p className="body-copy _leading-5 text-foreground mx-auto max-w-3xl font-sans text-sm lg:text-lg">
           This is the official certificate verification page for the UI/UX
           Design Workshop organized by the IEEE Computer Society Student Branch
           - University of Colombo School of Computing (UCSC), with IFS as the
