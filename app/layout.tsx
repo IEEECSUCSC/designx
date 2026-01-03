@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   title: "DesignX — Certificate Verification",
   description:
     "Official certificate verification page for the UI/UX Design Workshop (DesignX 2025).",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
