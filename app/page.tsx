@@ -1,36 +1,62 @@
+import Image from "next/image";
+import Link from "next/link";
+import Sponsors from "./components/Sponsors";
+import HeaderText from "./components/ui/HeaderText";
+import { cn } from "@/lib/utils";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-zinc-50 px-4 py-12 dark:bg-black">
-      <div className="w-full max-w-3xl space-y-10 text-center">
-        <section className="space-y-4">
-          <p className="text-sm font-medium tracking-[0.3em] text-zinc-500 dark:text-zinc-400">
-            DESIGNX HACKATHON
-          </p>
-          <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
-            DesignX Hackathon Certificates
-          </h1>
-          <p className="mx-auto max-w-xl text-sm text-zinc-600 dark:text-zinc-400">
-            Use this portal to view your DesignX Hackathon participation
-            certificate or verify the authenticity of a certificate using its
-            ID.
-          </p>
-        </section>
+    <main className="relative z-20 container mx-auto mt-(--header-height) flex min-h-[calc(100vh-var(--header-height))] w-full flex-col items-center">
+      <section className="_max-w-5xl relative flex w-full flex-1 flex-col items-center justify-center gap-y-4 px-2 pt-10 text-center lg:gap-y-8">
+        <h1
+          className={cn(
+            "font-mono text-5xl leading-[0.9] font-semibold uppercase lg:text-9xl",
+            "text-shadow-[4px_4px_0_#d8d8d8]",
+          )}
+        >
+          UI/UX DESIGN
+          <br />
+          WORKSHOP
+        </h1>
 
-        <section className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
+        <p className="body-copy _leading-5 text-foreground mx-auto max-w-3xl font-sans text-sm lg:text-lg">
+          This is the official certificate verification page for the UI/UX
+          Design Workshop organized by the IEEE Computer Society Student Branch
+          - University of Colombo School of Computing (UCSC), with IFS as the
+          Innovation Partner. Use this page to verify the authenticity of
+          certificates issued for this workshop using the unique verification
+          code provided on each certificate.
+        </p>
+
+        <div className="flex justify-center">
+          <Link
             href="/certificate"
-            className="inline-flex w-full items-center justify-center rounded-full bg-zinc-900 px-6 py-3 text-sm font-medium text-zinc-50 transition hover:bg-zinc-800 sm:w-auto dark:bg-zinc-50 dark:text-zinc-950 dark:hover:bg-zinc-200"
+            className="primary-button inline-flex items-center justify-center rounded px-7 py-3 text-sm font-semibold text-white"
           >
-            View Your Certificate
-          </a>
-          <a
-            href="/verify"
-            className="inline-flex w-full items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-900 transition hover:bg-zinc-100 sm:w-auto dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-900"
-          >
-            Verify a Certificate
-          </a>
-        </section>
-      </div>
+            Get Your Certificate
+          </Link>
+        </div>
+
+        <div className="pointer-events-none absolute top-24 left-8 hidden md:block">
+          <Image
+            src="/bot1.png"
+            alt="Pixel bot"
+            width={70}
+            height={70}
+            className="floating-icon"
+          />
+        </div>
+        <div className="pointer-events-none absolute top-24 right-12 hidden md:block">
+          <Image
+            src="/bot2.png"
+            alt="Pixel bot"
+            width={74}
+            height={74}
+            className="floating-icon"
+          />
+        </div>
+        <Sponsors />
+      </section>
     </main>
   );
 }
