@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useQueryState, parseAsString } from "nuqs";
 import { CertificateCard } from "../components/CertificateCard";
 import HeaderText from "../components/ui/HeaderText";
@@ -15,7 +15,7 @@ type CertificateRecord = {
   certificateId: string;
 };
 
-export default function VerifyCertificatePage() {
+function VerifyCertificateContent() {
   const [certificateId, setCertificateId] = useQueryState(
     "id",
     parseAsString.withDefault(""),
@@ -114,5 +114,19 @@ export default function VerifyCertificatePage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function VerifyCertificatePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center">
+          Loading...
+        </div>
+      }
+    >
+      <VerifyCertificateContent />
+    </Suspense>
   );
 }
