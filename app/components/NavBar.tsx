@@ -82,7 +82,7 @@ export default function NavBar() {
                 className={cn(
                   "fixed inset-0 top-[calc(var(--header-height)+2rem)] mx-auto",
                   "h-[calc(100dvh-var(--header-height)-3rem)] w-[calc(100%-1rem)]",
-                  "bg-background shadow-base radius-base border-foreground z-5000 border border-none p-6",
+                  "bg-background shadow-base rounded-base border-foreground z-5000 border p-6",
                   "flex flex-col items-center justify-center gap-2",
                 )}
               >

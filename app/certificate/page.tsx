@@ -63,7 +63,7 @@ export default function CertificateLookupPage() {
   }
 
   return (
-    <main className="page-height page-top-margin relative z-10 flex flex-col items-center justify-center">
+    <main className="page-height page-top-margin relative z-20 flex flex-col items-center justify-center">
       <div className="container flex h-full w-full flex-1 flex-col justify-between px-4 py-12 lg:px-0">
         <div className="flex flex-col gap-6">
           <HeaderText>GET your Certificate</HeaderText>

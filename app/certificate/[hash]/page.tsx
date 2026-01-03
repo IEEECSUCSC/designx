@@ -55,7 +55,7 @@ export default function CertificateDisplayPage() {
 
   if (loading) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center px-4 py-12">
+      <main className="page-height page-top-margin flex flex-col items-center justify-center px-4 py-12">
         <div className="text-center">
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
             Loading certificate...
@@ -70,7 +70,7 @@ export default function CertificateDisplayPage() {
   }
 
   return (
-    <main className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 py-12">
+    <main className="page-height page-top-margin relative z-10 flex flex-col items-center justify-center px-4 py-12">
       <div className="w-full max-w-4xl space-y-6">
         <div className="flex justify-center">
           <CertificateCard
