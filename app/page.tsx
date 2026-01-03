@@ -2,16 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 import Sponsors from "./components/Sponsors";
 import HeaderText from "./components/ui/HeaderText";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
     <main className="container mx-auto mt-(--header-height) flex min-h-[calc(100vh-var(--header-height))] w-full flex-col items-center">
       <section className="_max-w-5xl relative flex w-full flex-1 flex-col items-center justify-center gap-y-4 px-2 pt-10 text-center lg:gap-y-8">
-        <HeaderText>
+        <h1
+          className={cn(
+            "font-mono text-5xl leading-[0.9] font-semibold uppercase lg:text-9xl",
+            "text-shadow-[4px_4px_0_#d8d8d8]",
+          )}
+        >
           UI/UX DESIGN
           <br />
           WORKSHOP
-        </HeaderText>
+        </h1>
 
         <p className="body-copy _leading-5 text-foreground mx-auto max-w-3xl font-sans text-sm lg:text-lg">
           This is the official certificate verification page for the UI/UX
