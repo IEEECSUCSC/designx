@@ -16,11 +16,39 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DesignX — Certificate Verification",
+  metadataBase: new URL("https://designx.ieeecsucsc.org"),
+  title: {
+    default: "DesignX — UI/UX Design Workshop",
+    template: "%s | DesignX",
+  },
   description:
-    "Official certificate verification page for the UI/UX Design Workshop (DesignX 2025).",
+    "DesignX is the premier UI/UX design workshop organized by IEEE Computer Society Student Branch of UCSC. Master the art of user experience and interface design.",
   icons: {
     icon: "/logo.png",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://designx.ieeecsucsc.org",
+    siteName: "DesignX 2025",
+    title: "DesignX — UI/UX Design Workshop",
+    description:
+      "DesignX is the premier UI/UX design workshop organized by IEEE Computer Society Student Branch of UCSC.",
+    images: [
+      {
+        url: "/og-image.png", 
+        width: 1200,
+        height: 630,
+        alt: "DesignX Workshop",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DesignX — UI/UX Design Workshop",
+    description:
+      "DesignX is the premier UI/UX design workshop organized by IEEE Computer Society Student Branch of UCSC.",
+    images: ["/og-image.png"],
   },
 };
 
