@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "DesignX 2025",
     title: "DesignX — UI/UX Design Workshop",
     description:
-      "DesignX is the premier UI/UX design workshop organized by IEEE Student Branch of UCSC.",
+      "DesignX is the premier UI/UX design workshop organized by IEEE Computer Society Student Branch of UCSC.",
     images: [
       {
         url: "/og-image.png", 
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DesignX — UI/UX Design Workshop",
     description:
-      "DesignX is the premier UI/UX design workshop organized by IEEE Student Branch of UCSC.",
+      "DesignX is the premier UI/UX design workshop organized by IEEE Computer Society Student Branch of UCSC.",
     images: ["/og-image.png"],
   },
 };
