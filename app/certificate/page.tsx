@@ -89,12 +89,18 @@ export default function CertificateLookupPage() {
             {error && <p className="text-primary text-sm">{error}</p>}
           </form>
         </div>
-        <div className="flex justify-end">
+        <div className="flex justify-between lg:justify-end lg:gap-6">
           <Link
             href="/verify"
             className="underline underline-offset-2 hover:cursor-pointer"
           >
             Verify Certificate
+          </Link>
+          <Link
+            href="/contact"
+            className="underline underline-offset-2 hover:cursor-pointer"
+          >
+            Have an issue?
           </Link>
         </div>
       </div>

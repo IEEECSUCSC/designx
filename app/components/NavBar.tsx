@@ -102,18 +102,18 @@ export default function NavBar() {
                 >
                   Home
                 </Link>
-                <Link
+                {/* <Link
                   role="menuitem"
                   className="menu-item"
                   href="/#about"
                   onClick={() => setMenuOpen(false)}
                 >
                   About
-                </Link>
+                </Link> */}
                 <Link
                   role="menuitem"
                   className="menu-item"
-                  href="/#contact"
+                  href="/contact"
                   onClick={() => setMenuOpen(false)}
                 >
                   Contact
