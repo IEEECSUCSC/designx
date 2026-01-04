@@ -67,7 +67,7 @@ export default function CertificateLookupPage() {
       <div className="container flex h-full w-full flex-1 flex-col justify-between px-4 py-12 lg:px-0">
         <div className="flex flex-col gap-6">
           <HeaderText>GET your Certificate</HeaderText>
-          <form onSubmit={handleSubmit} className="flex gap-4">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div className="flex w-full flex-col space-y-1 lg:w-fit">
               <Label htmlFor="email">Email</Label>
               <div className="flex w-full flex-col gap-4 lg:flex-row lg:gap-8">
@@ -86,17 +86,21 @@ export default function CertificateLookupPage() {
               </div>
             </div>
 
-            {/* {error && (
-              <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
-            )} */}
+            {error && <p className="text-primary text-sm">{error}</p>}
           </form>
         </div>
-        <div className="flex justify-end">
+        <div className="flex justify-between lg:justify-end lg:gap-6">
           <Link
             href="/verify"
             className="underline underline-offset-2 hover:cursor-pointer"
           >
             Verify Certificate
+          </Link>
+          <Link
+            href="/contact"
+            className="underline underline-offset-2 hover:cursor-pointer"
+          >
+            Have an issue?
           </Link>
         </div>
       </div>

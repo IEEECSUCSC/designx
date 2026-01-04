@@ -87,7 +87,7 @@ function VerifyCertificateContent() {
               </div>
             </div>
             {valid === false && error && (
-              <p className="text-primary text-sm">Not a valid certificate.</p>
+              <p className="text-primary text-sm">Not a valid certificate id.</p>
             )}
             {valid === true && (
               <p className="text-primary text-sm">Certificate is valid.</p>
@@ -104,12 +104,18 @@ function VerifyCertificateContent() {
           </div>
         )}
 
-        <div className="flex justify-end">
+        <div className="flex justify-between lg:justify-end lg:gap-6">
           <Link
             href="/certificate"
             className="underline underline-offset-2 hover:cursor-pointer"
           >
             Get Certificate
+          </Link>
+          <Link
+            href="/contact"
+            className="underline underline-offset-2 hover:cursor-pointer"
+          >
+            Have an issue?
           </Link>
         </div>
       </div>
